@@ -1,9 +1,9 @@
+"use client";
 import Image from "next/image";
 import Stacks from "./stacks";
 import { CodeBlockBasic } from "./code-block";
 import GreetingWidget from "./ui/data-greeting";
-import Skills from "./skills";
-import Component from "./ui/text-marque";
+import { motion } from "motion/react";
 
 export default function Hero() {
   // const h = []
@@ -11,11 +11,20 @@ export default function Hero() {
   // h.forEach(() => {}
 
   return (
-    <section className="grid grid-cols-2 md:grid-cols-4 md:gap-6 gap-2 mt-20">
+    <motion.section
+      className="grid grid-cols-2 md:grid-cols-4 md:gap-6 gap-2 mt-20 mb-40"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+    >
       <div className="col-span-1 md:row-span-1 rounded-3xl relative overflow-hidden shadow-lg flex flex-col justify-between items-center p-6 gap-4">
+        {/* <span className="w-20 h-4 bg-gray-300 rounded-full flex items-center justify-center text-white font-mono text-xs ">
+          <span className="w-17 h-2 bg-white rounded-full"></span>
+        </span> */}
         <div className="rounded-full w-70 h-70 overflow-hidden border-8 border-gray-300">
           <Image
-            src="/images/me.png"
+            src="/images/me2.jpeg"
             // src="https://images.unsplash.com/photo-1651309098943-8503c148ef55?q=80&w=1065&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Picture of the author"
             width={500}
@@ -30,6 +39,7 @@ export default function Hero() {
           </div>
           <h2 className="md:text-4xl font-bold">Hugo Lomba</h2>
           <p className="md:text-2xl">Web Developer</p>
+          <p>🎓 Computer Science Graduate</p>
           <p>📍 Based in Dublin, Ireland</p>
         </header>
 
@@ -74,7 +84,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="mailto:hello@hugolomba.com"
+              href="mailto:hugo@hugolomba.com"
               className="flex items-center gap-2 bg-red-500 text-white px-4 py-4 rounded-full text-sm font-medium shadow hover:bg-red-600 transition"
             >
               <svg
@@ -91,7 +101,14 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="md:col-span-2 flex flex-col gap-4">
+      <div className="md:col-span-2 flex flex-col gap-4 relative">
+        <Image
+          src="/images/pin.png"
+          alt="Code Banner"
+          width={1200}
+          height={300}
+          className="absolute -top-15 -right-15 w-24 h-24 "
+        />
         <header className="rounded-3xl md:col-span-2 md:row-span-1 p-2 md:p-8 shadow-lg">
           <h1 className="md:text-4xl font-bold mb-4">
             Crafting Modern Web Experiences
@@ -109,7 +126,7 @@ export default function Hero() {
         </header>
 
         <div className="flex flex-row md:gap-6 h-full w-full">
-          <div className="overflow-hidden w-full rounded-3xl">
+          <div className="overflow-hidden w-full h-full rounded-3xl">
             <CodeBlockBasic />
           </div>
 
@@ -123,7 +140,7 @@ export default function Hero() {
       </div>
 
       <div className="flex flex-col h-full justify-between md:gap-6">
-        <div className="rounded-3xl p-10 shadow-lg ">
+        <div className="rounded-3xl p-5 shadow-lg ">
           <GreetingWidget />
         </div>
         <div className="rounded-3xl flex flex-col justify-center items-center p-4 shadow-lg bg-black  hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer h-full">
@@ -132,6 +149,6 @@ export default function Hero() {
           </h2>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

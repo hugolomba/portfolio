@@ -1,18 +1,20 @@
+import Link from "next/link";
+
 export default function Navbar() {
   return (
     <nav className="p-4 bg-white shadow-lg rounded-full max-w-sm mx-auto my-4 ">
       <ul className="flex space-x-4 justify-evenly">
         <li className="text-gray-700 hover:text-blue-500 cursor-pointer">
-          Home
+          <Link href="/">Home</Link>
         </li>
         <li className="text-gray-700 hover:text-blue-500 cursor-pointer">
-          About
+          <Link href="/about">About</Link>
         </li>
         <li className="text-gray-700 hover:text-blue-500 cursor-pointer">
-          Projects
+          <Link href="/projects">Projects</Link>
         </li>
         <li className="text-gray-700 hover:text-blue-500 cursor-pointer">
-          Contact
+          <Link href="/contact">Contact</Link>
         </li>
       </ul>
     </nav>

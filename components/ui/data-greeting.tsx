@@ -67,8 +67,8 @@ export default function GreetingWidget() {
   }, []);
 
   return (
-    <div className="w-full">
-      <p className="text-lg capitalize">{data.date}</p>
+    <div className="w-full flex flex-col items-center justify-center text-center gap-2">
+      <p className="text-md capitalize">{data.date}</p>
       <p className="text-7xl font-semibold ">{data.time}</p>
 
       <p className="text-lg font-medium">{data.greeting} 👋</p>

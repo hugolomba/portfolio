@@ -13,8 +13,8 @@ function CodeBlock({ children, className, ...props }: CodeBlockProps) {
   return (
     <div
       className={cn(
-        "not-prose flex w-full flex-col overflow-clip",
-        "border-border bg-card text-card-foreground",
+        "not-prose flex w-full h-full flex-col overflow-clip",
+        "border-border bg-card text-card-foreground h-full",
         className,
       )}
       {...props}
@@ -67,8 +67,8 @@ function CodeBlockCode({
     />
   ) : (
     <div className={classNames} {...props}>
-      <pre>
-        <code>{code}</code>
+      <pre className="h-full">
+        <code className="h-full">{code}</code>
       </pre>
     </div>
   );
@@ -83,7 +83,7 @@ function CodeBlockGroup({
 }: CodeBlockGroupProps) {
   return (
     <div
-      className={cn("flex items-center justify-between", className)}
+      className={cn("flex items-center justify-between h-full", className)}
       {...props}
     >
       {children}
