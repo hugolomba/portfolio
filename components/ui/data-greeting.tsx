@@ -67,11 +67,32 @@ export default function GreetingWidget() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center text-center gap-2">
-      <p className="text-md capitalize">{data.date}</p>
-      <p className="text-7xl font-semibold ">{data.time}</p>
+    <div className="w-full">
+      {/* <div className="flex items-center justify-between gap-3 px-1">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">
+            Local Time
+          </p>
+          <p className="mt-1 text-sm text-zinc-500">Dublin, Ireland</p>
+        </div>
 
-      <p className="text-lg font-medium">{data.greeting} 👋</p>
+        <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-white/95 px-3 py-1 text-[11px] font-medium text-zinc-600 shadow-sm">
+          <span className="relative flex h-2 w-2 items-center justify-center">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 [animation-duration:2.2s]" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+          </span>
+          Live
+        </div>
+      </div> */}
+
+      <div className=" flex flex-col items-center">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-400 capitalize">
+          {data.date}
+        </p>
+        <p className="mt-3 text-5xl font-semibold tracking-tight text-zinc-950 sm:text-6xl">
+          {data.time}
+        </p>
+      </div>
     </div>
   );
 }

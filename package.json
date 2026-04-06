@@ -21,6 +21,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-icons": "^5.5.0",
+    "rough-notation": "^0.5.1",
     "shiki": "^3.21.0",
     "tailwind-merge": "^3.4.0",
     "tech-stack-icons": "^3.5.7"

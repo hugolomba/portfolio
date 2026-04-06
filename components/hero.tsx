@@ -1,59 +1,87 @@
 "use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "motion/react";
 import Stacks from "./stacks";
 import { CodeBlockBasic } from "./code-block";
 import GreetingWidget from "./ui/data-greeting";
-import { motion } from "motion/react";
 
 export default function Hero() {
-  // const h = []
-
-  // h.forEach(() => {}
-
   return (
     <motion.section
-      className="grid grid-cols-2 md:grid-cols-4 md:gap-6 gap-2 mt-20 mb-40"
+      className="mt-20 mb-32 grid grid-cols-1 gap-3 px-1 md:mt-24 md:mb-40 md:grid-cols-4 md:gap-6"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
     >
-      <div className="col-span-1 md:row-span-1 rounded-3xl relative overflow-hidden shadow-lg flex flex-col justify-between items-center p-6 gap-4">
-        {/* <span className="w-20 h-4 bg-gray-300 rounded-full flex items-center justify-center text-white font-mono text-xs ">
-          <span className="w-17 h-2 bg-white rounded-full"></span>
-        </span> */}
-        <div className="rounded-full w-70 h-70 overflow-hidden border-8 border-gray-300">
-          <Image
-            src="/images/me2.jpeg"
-            // src="https://images.unsplash.com/photo-1651309098943-8503c148ef55?q=80&w=1065&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Picture of the author"
-            width={500}
-            height={800}
-            className="w-full h-auto"
-          />
+      <aside className="relative flex flex-col justify-between rounded-[2rem] border border-gray-200/70 bg-white/85 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-sm sm:p-8">
+        <div className="mb-8 flex items-center gap-2">
+          <span className="h-3 w-3 rounded-full bg-red-400/90" />
+          <span className="h-3 w-3 rounded-full bg-amber-400/90" />
+          <span className="h-3 w-3 rounded-full bg-green-400/90" />
         </div>
 
-        <header className="flex flex-col items-center justify-center">
-          <div className="bg-green-500 rounded-full mb-2 px-4 py-1 text-sm w-fit">
+        <div className="flex flex-col items-center text-center">
+          <div className="relative mb-6 h-44 w-44 overflow-hidden rounded-full border border-white/70 bg-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.08)] ring-1 ring-black/5 sm:h-52 sm:w-52">
+            <Image
+              src="/images/me2.jpeg"
+              alt="Portrait of Hugo Lomba"
+              fill
+              sizes="(min-width: 640px) 208px, 176px"
+              className="object-cover"
+              priority
+            />
+          </div>
+
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-white/95 px-4 py-1.5 text-sm font-medium text-zinc-700 shadow-[0_4px_14px_rgba(0,0,0,0.06)] backdrop-blur">
+            <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 [animation-duration:2.2s]" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+            </span>
             Open to Work
           </div>
-          <h2 className="md:text-4xl font-bold">Hugo Lomba</h2>
-          <p className="md:text-2xl">Web Developer</p>
-          <p>🎓 Computer Science Graduate</p>
-          <p>📍 Based in Dublin, Ireland</p>
-        </header>
 
-        <div className="w-full flex flex-col items-center gap-4 mt-4">
-          <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wide">
-            Contacts
-          </h3>
+          <h2 className="text-3xl font-semibold tracking-tight text-zinc-950 md:text-4xl">
+            Hugo Lomba
+          </h2>
+          <p className="mt-2 text-lg text-zinc-700 md:text-xl">
+            Software Engineer
+          </p>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="mt-4 space-y-1 text-sm text-zinc-500 md:text-base">
+            <p>🎓 Computer Science Graduate</p>
+            <p>📍 Based in Dublin, Ireland</p>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-3">
+          <button className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-5 py-3 text-sm font-medium text-white shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(0,0,0,0.20)]">
+            Download CV
+          </button>
+          {/* <Link
+            href="/projects"
+            className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-50 hover:text-zinc-950"
+          >
+            View Projects
+          </Link> */}
+        </div>
+
+        <div className="mt-10 border-t border-gray-200 pt-8">
+          <div className="mb-4 text-center">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">
+              Connect
+            </h3>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <a
               href="https://www.linkedin.com/in/hugo-lomba"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-blue-600 text-white px-4 py-4 rounded-full text-sm font-medium shadow hover:bg-blue-700 transition"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:bg-[#0A66C2] hover:text-white"
+              aria-label="LinkedIn"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +98,8 @@ export default function Hero() {
               href="https://github.com/hugolomba"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-gray-800 text-white px-4 py-4 rounded-full text-sm font-medium shadow hover:bg-gray-900 transition"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:bg-zinc-900 hover:text-white"
+              aria-label="GitHub"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +114,8 @@ export default function Hero() {
 
             <a
               href="mailto:hugo@hugolomba.com"
-              className="flex items-center gap-2 bg-red-500 text-white px-4 py-4 rounded-full text-sm font-medium shadow hover:bg-red-600 transition"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-colors hover:bg-red-500 hover:text-white"
+              aria-label="Email"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -99,55 +129,159 @@ export default function Hero() {
             </a>
           </div>
         </div>
-      </div>
+      </aside>
 
-      <div className="md:col-span-2 flex flex-col gap-4 relative">
-        <Image
-          src="/images/pin.png"
-          alt="Code Banner"
-          width={1200}
-          height={300}
-          className="absolute -top-15 -right-15 w-24 h-24 "
-        />
-        <header className="rounded-3xl md:col-span-2 md:row-span-1 p-2 md:p-8 shadow-lg">
-          <h1 className="md:text-4xl font-bold mb-4">
-            Crafting Modern Web Experiences
-          </h1>
-          <p>
-            I build clean, fast web apps with React and Next.js. Former bank
-            professional, now focused on tech.
+      <div className="md:col-span-2 flex flex-col gap-3 md:gap-6">
+        <header className="rounded-[2rem] border border-gray-200/70 bg-white/85 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-sm md:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500 sm:text-sm">
+            Software Engineer
           </p>
 
-          <div className="flex flex-col md:flex-row md:gap-6 mt-4">
-            <button className="rounded-full bg-black px-5 py-2 text-sm font-medium text-white shadow-sm">
-              Download CV
-            </button>
-          </div>
+          <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl md:leading-[1.02]">
+            Building thoughtful digital experiences for the web.
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-600 md:text-xl md:leading-8">
+            I work across front-end and back-end development, creating clean,
+            modern, and user-focused web applications with strong attention to
+            detail, performance, and usability.
+          </p>
         </header>
 
-        <div className="flex flex-row md:gap-6 h-full w-full">
-          <div className="overflow-hidden w-full h-full rounded-3xl">
+        <div className="flex h-full flex-col gap-3 md:flex-row md:gap-6">
+          <div className="overflow-hidden rounded-[2rem] border border-gray-200/70 bg-white/85 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-sm md:flex-1">
             <CodeBlockBasic />
           </div>
 
-          <div className="rounded-3xl flex flex-col shadow-lg max-w-80">
-            <h2 className="text-2xl font-bold self-center uppercase tracking-tight p-2 mb-5 mt-6">
-              Tech Stack
-            </h2>
-            <Stacks />
+          <div className="rounded-[2rem] border border-gray-200/70 bg-white/85 p-5 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-sm md:w-[20rem] md:p-6">
+            <div className="mb-5">
+              <p className="text-md font-semibold uppercase tracking-[0.24em] text-zinc-500">
+                Tech Stack
+              </p>
+            </div>
+            <div className="flex h-full items-center justify-center">
+              <Stacks />
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col h-full justify-between md:gap-6">
-        <div className="rounded-3xl p-5 shadow-lg ">
+      <div className="flex flex-col gap-3 md:gap-6">
+        <div className="rounded-[2rem] border border-gray-200/70 bg-white/85 p-5 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-sm md:p-6">
           <GreetingWidget />
+          <div className="flex items-center justify-between gap-3 mt-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">
+              Live Updates
+            </p>
+            <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-white/95 px-3 py-1 text-[11px] font-medium text-zinc-600 shadow-sm">
+              <span className="relative flex h-2 w-2 items-center justify-center">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 [animation-duration:2.2s]" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              Updated now
+            </div>
+          </div>
+
+          <div className="mt-5 space-y-3">
+            <div className="rounded-2xl border border-gray-200/80 bg-white/90 px-4 py-3 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
+                Right now
+              </p>
+              <div className="mt-3">
+                <ul className="space-y-2 text-sm text-zinc-600">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-zinc-400" />
+                    <span>
+                      Studying{" "}
+                      <span className="font-medium text-zinc-800">Java</span>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-zinc-400" />
+                    <span>
+                      Strengthening foundations in{" "}
+                      <span className="font-medium text-zinc-800">
+                        data structures
+                      </span>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-zinc-400" />
+                    <span>
+                      Improving{" "}
+                      <span className="font-medium text-zinc-800">
+                        problem solving
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* <div className="rounded-2xl border border-gray-200/80 bg-white/90 px-4 py-3 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
+                Next
+              </p>
+              <div className="mt-3">
+                <ul className="space-y-2 text-sm text-zinc-600">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-zinc-400" />
+                    <span>
+                      Refining my{" "}
+                      <span className="font-medium text-zinc-800">
+                        portfolio UI
+                      </span>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-zinc-400" />
+                    <span>
+                      Building more{" "}
+                      <span className="font-medium text-zinc-800">
+                        full-stack projects
+                      </span>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-zinc-400" />
+                    <span>
+                      Adding more{" "}
+                      <span className="font-medium text-zinc-800">
+                        product polish
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div> */}
+          </div>
         </div>
-        <div className="rounded-3xl flex flex-col justify-center items-center p-4 shadow-lg bg-black  hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer h-full">
-          <h2 className="text-6xl font-bold self-center uppercase tracking-tight text-white p-2 text-center">
-            See My Work
-          </h2>
-        </div>
+
+        <Link
+          href="/projects"
+          className="h-full group flex min-h-[180px] flex-col justify-between rounded-[2rem] bg-zinc-950 p-6 text-white shadow-[0_16px_40px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.20)]"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
+            Latest Projects
+          </p>
+
+          <div>
+            <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl md:leading-[1]">
+              Recent work
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-white/70">
+              Explore the latest projects I have been designing and building
+              across front-end, back-end, and full-stack development.
+            </p>
+          </div>
+
+          <div className="mt-6 inline-flex items-center text-sm font-medium text-white/90">
+            View projects
+            <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </div>
+        </Link>
       </div>
     </motion.section>
   );

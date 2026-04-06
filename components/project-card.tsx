@@ -4,72 +4,74 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function ProjectCard({ project }: { project: any }) {
+  const previewImage =
+    project.imageUrl || project.imageUrls?.[0] || "/images/placeholder.png";
+
   return (
-    <Link href={`/projects/${project.slug}`}>
-      <div className="border-border rounded-3xl border p-8 min-h-150 flex flex-col justify-between cursor-pointer z-0 relative shadow-xl ">
-        <div className="flex flex-row gap-x-2 absolute top-4 left-4">
-          <div className="h-4 w-4 rounded-full bg-red-500"></div>
-          <div className="h-4 w-4 rounded-full bg-yellow-500"></div>
-          <div className="h-4 w-4 rounded-full bg-green-500"></div>
+    <Link href={`/projects/${project.slug}`} className="block group h-full">
+      <article className="relative flex h-full flex-col justify-between overflow-hidden rounded-[2rem] border border-gray-200/80 bg-white/90 p-5 sm:p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(0,0,0,0.10)]">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-gray-50 to-transparent" />
+
+        <div className="relative z-10 flex items-center gap-2 mb-6">
+          <span className="h-3 w-3 rounded-full bg-red-400/90" />
+          <span className="h-3 w-3 rounded-full bg-amber-400/90" />
+          <span className="h-3 w-3 rounded-full bg-green-400/90" />
         </div>
 
-        <div className="my-4 w-full h-50 object-cover rounded-2xl overflow-hidden mt-10">
+        <div className="relative mb-6 overflow-hidden rounded-[1.5rem] border border-gray-200 bg-gradient-to-b from-gray-50 to-gray-100 aspect-[16/10]">
           <Image
-            src={project.imageUrl}
-            alt="Project Screenshot"
-            width={400}
-            height={200}
-            className="object-cover"
+            src={previewImage}
+            alt={`${project.title} preview`}
+            fill
+            sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           />
         </div>
 
-        <div>
-          <span className="flex uppercase tracking-tighter font-semibold">
-            Saas Application
-          </span>
-          <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
-          <p>{project.description}</p>
+        <div className="flex flex-1 flex-col">
+          <div className="mb-5">
+            <span className="mb-3 inline-flex text-[11px] font-semibold uppercase tracking-[0.24em] text-gray-500">
+              Selected Project
+            </span>
+            <h3 className="mb-3 text-2xl font-semibold tracking-tight text-gray-950 line-clamp-1">
+              {project.title}
+            </h3>
+            <p className="text-sm leading-6 text-gray-600 line-clamp-3">
+              {project.description}
+            </p>
+          </div>
 
-          <div>
-            <h4 className="mt-8 font-semibold">Technologies:</h4>
-            <ul className="list-none flex flex-row flex-wrap gap-2 mt-2">
-              {project.technologies.map((tech: string, index: number) => (
-                <li
-                  key={index}
-                  className="bg-gray-800 text-white px-2 py-1 rounded-full"
-                >
-                  {tech}
+          <div className="mt-auto">
+            <div className="mb-3 flex items-center justify-between gap-3">
+              <h4 className="text-sm font-medium text-gray-700">
+                Technologies
+              </h4>
+              <span className="text-xs text-gray-400">
+                {project.technologies.length} stack
+              </span>
+            </div>
+
+            <ul className="flex flex-wrap gap-2">
+              {project.technologies
+                .slice(0, 3)
+                .map((tech: string, index: number) => (
+                  <li
+                    key={index}
+                    className="rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700"
+                  >
+                    {tech}
+                  </li>
+                ))}
+
+              {project.technologies.length > 3 && (
+                <li className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-500">
+                  +{project.technologies.length - 3} more
                 </li>
-              ))}
+              )}
             </ul>
           </div>
         </div>
-
-        {/* <button className="bg-red-700" onClick={() => setIsModalOpen(true)}>
-        Open Modal
-      </button> */}
-
-        {/* {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-          <div
-            className="bg-white rounded-2xl p-6 max-w-lg w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2 className="text-2xl font-bold mb-4">Project Title</h2>
-            <p className="mb-4">
-              Detailed information about the project, including features,
-              technologies used, challenges faced, and solutions implemented.
-            </p>
-            <button
-              className="bg-blue-600 text-white px-4 py-2 rounded-full"
-              onClick={() => setIsModalOpen(false)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )} */}
-      </div>
+      </article>
     </Link>
   );
 }
