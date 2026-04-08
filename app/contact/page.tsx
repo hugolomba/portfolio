@@ -1,8 +1,87 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "motion/react";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    website: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
+
+  function handleChange(
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) {
+    const { name, value } = event.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setStatus(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const contentType = response.headers.get("content-type") || "";
+
+      if (!contentType.includes("application/json")) {
+        const text = await response.text();
+        throw new Error(
+          text.startsWith("<!DOCTYPE")
+            ? "The /api/contact route is returning HTML instead of JSON. Check whether app/api/contact/route.ts exists and whether the server is throwing an error."
+            : "Unexpected response from the server.",
+        );
+      }
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message.");
+      }
+
+      setStatus({
+        type: "success",
+        message: "Message sent successfully. I will get back to you soon.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        website: "",
+      });
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Something went wrong. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
   return (
     <motion.section
       className="mx-auto mt-20 mb-40 max-w-5xl px-1"
@@ -21,11 +100,12 @@ export default function ContactPage() {
         <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
           <div className="flex flex-col justify-between">
             <div>
+               
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">
                 Contact
               </p>
               <h1 className="mt-3 text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl md:leading-[1.02]">
-                Let’s build something thoughtful together.
+                Let’s build something together.
               </h1>
               <p className="mt-5 max-w-md text-base leading-7 text-zinc-600">
                 I’m open to new opportunities, freelance projects, and good
@@ -95,7 +175,7 @@ export default function ContactPage() {
               </h2>
             </div>
 
-            <form className="grid grid-cols-1 gap-4">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="flex flex-col gap-2">
                   <label
@@ -109,6 +189,8 @@ export default function ContactPage() {
                     name="name"
                     type="text"
                     placeholder="Your name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="rounded-[1.25rem] border border-zinc-200 bg-white px-4 py-3 outline-none transition-all duration-300 focus:border-zinc-900 focus:shadow-sm"
                   />
                 </div>
@@ -125,6 +207,8 @@ export default function ContactPage() {
                     name="email"
                     type="email"
                     placeholder="your@email.com"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="rounded-[1.25rem] border border-zinc-200 bg-white px-4 py-3 outline-none transition-all duration-300 focus:border-zinc-900 focus:shadow-sm"
                   />
                 </div>
@@ -142,6 +226,8 @@ export default function ContactPage() {
                   name="subject"
                   type="text"
                   placeholder="Project, opportunity, or just saying hi"
+                  value={formData.subject}
+                  onChange={handleChange}
                   className="rounded-[1.25rem] border border-zinc-200 bg-white px-4 py-3 outline-none transition-all duration-300 focus:border-zinc-900 focus:shadow-sm"
                 />
               </div>
@@ -158,16 +244,41 @@ export default function ContactPage() {
                   name="message"
                   rows={6}
                   placeholder="Tell me a bit about your project or message"
+                  value={formData.message}
+                  onChange={handleChange}
                   className="resize-none rounded-[1.25rem] border border-zinc-200 bg-white px-4 py-3 outline-none transition-all duration-300 focus:border-zinc-900 focus:shadow-sm"
                 />
               </div>
 
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
+
+              {status && (
+                <p
+                  className={`text-sm ${
+                    status.type === "success"
+                      ? "text-green-600"
+                      : "text-red-600"
+                  }`}
+                >
+                  {status.message}
+                </p>
+              )}
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="rounded-full bg-zinc-950 px-6 py-3 text-sm font-medium text-white shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(0,0,0,0.20)]"
+                  disabled={isSubmitting}
+                  className="rounded-full bg-zinc-950 px-6 py-3 text-sm font-medium text-white shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(0,0,0,0.20)] disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  Send message
+                  {isSubmitting ? "Sending..." : "Send message"}
                 </button>
               </div>
             </form>
