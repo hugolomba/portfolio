@@ -3,7 +3,7 @@ import ProjectsSection from "@/components/projects";
 
 export default function Home() {
   return (
-    <main className="max-w-7xl mx-auto">
+    <main className="mx-auto max-w-[90rem]">
       <Hero />
       {/* <ProjectsSection /> */}
     </main>

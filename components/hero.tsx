@@ -10,7 +10,7 @@ import GreetingWidget from "./ui/data-greeting";
 export default function Hero() {
   return (
     <motion.section
-      className="mt-20 mb-32 grid grid-cols-1 gap-3 px-1 md:mt-24 md:mb-40 md:grid-cols-4 md:gap-6"
+      className="mt-20 mb-32 grid grid-cols-1 gap-3 px-1 md:mt-10 md:mb-40 md:grid-cols-4 md:gap-6"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
@@ -47,7 +47,7 @@ export default function Hero() {
             Hugo Lomba
           </h2>
           <p className="mt-2 text-lg text-zinc-700 md:text-xl">
-            Software Engineer
+            Software Developer
           </p>
 
           <div className="mt-4 space-y-1 text-sm text-zinc-500 md:text-base">
@@ -91,7 +91,6 @@ export default function Hero() {
               >
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11.75 19h-3v-9h3v9zm-1.5-10.25c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.25 10.25h-3v-4.5c0-1.071-.929-1.5-1.5-1.5s-1.5.429-1.5 1.5v4.5h-3v-9h3v1.25c.438-.766 1.5-1.25 2.5-1.25 2.071 0 3.5 1.429 3.5 3.5v5.5z" />
               </svg>
-              {/* LinkedIn */}
             </a>
 
             <a
@@ -109,7 +108,6 @@ export default function Hero() {
               >
                 <path d="M12 .5c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.011-1.041-.017-2.045-3.338.724-4.042-1.611-4.042-1.611-.546-1.387-1.333-1.756-1.333-1.756-1.089-.744.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.76-1.605-2.665-.303-5.467-1.332-5.467-5.932 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.521.117-3.172 0 0 1.008-.322 3.301 1.23a11.494 11.494 0 013.003-.404c1.019.004 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.651.243 2.869.119 3.172.77.84 1.236 1.911 1.236 3.221 0 4.609-2.807 5.625-5.479 5.921.43.371.813 1.102.813 2.222 0 1.605-.015 2.896-.015 3.289 0 .319.218.694.825.576C20.565 22.298 24 17.803 24 12.5 24 5.873 18.627.5 12 .5z" />
               </svg>
-              {/* GitHub */}
             </a>
 
             <a
@@ -125,7 +123,6 @@ export default function Hero() {
               >
                 <path d="M12 12.713l11.985-7.713h-23.97l11.985 7.713zm0 2.574l-12-7.987v13.7h24v-13.7l-12 7.987z" />
               </svg>
-              {/* Email */}
             </a>
           </div>
         </div>
@@ -134,17 +131,17 @@ export default function Hero() {
       <div className="md:col-span-2 flex flex-col gap-3 md:gap-6">
         <header className="rounded-[2rem] border border-gray-200/70 bg-white/85 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-sm md:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500 sm:text-sm">
-            Software Engineer
+            Software Developer
           </p>
 
           <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl md:leading-[1.02]">
-            Building thoughtful digital experiences for the web.
+            Strong Foundations. Modern Solutions.
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-600 md:text-xl md:leading-8">
-            I work across front-end and back-end development, creating clean,
-            modern, and user-focused web applications with strong attention to
-            detail, performance, and usability.
+            I work across front-end and back-end development, combining strong
+            software engineering foundations with hands-on experience building
+            clean, modern, and user-focused applications.
           </p>
         </header>
 
@@ -159,9 +156,8 @@ export default function Hero() {
                 Tech Stack
               </p>
             </div>
-            <div className="flex h-full items-center justify-center">
-              <Stacks />
-            </div>
+
+            <Stacks />
           </div>
         </div>
       </div>
@@ -169,7 +165,7 @@ export default function Hero() {
       <div className="flex flex-col gap-3 md:gap-6">
         <div className="rounded-[2rem] border border-gray-200/70 bg-white/85 p-5 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-sm md:p-6">
           <GreetingWidget />
-          <div className="flex items-center justify-between gap-3 mt-5">
+          <div className="mt-5 flex items-center justify-between gap-3">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">
               Live Updates
             </p>
@@ -217,49 +213,12 @@ export default function Hero() {
                 </ul>
               </div>
             </div>
-
-            {/* <div className="rounded-2xl border border-gray-200/80 bg-white/90 px-4 py-3 shadow-sm">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
-                Next
-              </p>
-              <div className="mt-3">
-                <ul className="space-y-2 text-sm text-zinc-600">
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-zinc-400" />
-                    <span>
-                      Refining my{" "}
-                      <span className="font-medium text-zinc-800">
-                        portfolio UI
-                      </span>
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-zinc-400" />
-                    <span>
-                      Building more{" "}
-                      <span className="font-medium text-zinc-800">
-                        full-stack projects
-                      </span>
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-zinc-400" />
-                    <span>
-                      Adding more{" "}
-                      <span className="font-medium text-zinc-800">
-                        product polish
-                      </span>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div> */}
           </div>
         </div>
 
         <Link
           href="/projects"
-          className="h-full group flex min-h-[180px] flex-col justify-between rounded-[2rem] bg-zinc-950 p-6 text-white shadow-[0_16px_40px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.20)]"
+          className="group flex h-full min-h-[180px] flex-col justify-between rounded-[2rem] bg-zinc-950 p-6 text-white shadow-[0_16px_40px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.20)]"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
             Latest Projects

@@ -83,7 +83,7 @@ function CodeBlockGroup({
 }: CodeBlockGroupProps) {
   return (
     <div
-      className={cn("flex items-center justify-between h-full", className)}
+      className={cn("flex items-center justify-between", className)}
       {...props}
     >
       {children}
