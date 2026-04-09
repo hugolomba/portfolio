@@ -67,12 +67,6 @@ export default function Hero() {
             >
               Download CV
             </a>
-            {/* <Link
-            href="/projects"
-            className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-50 hover:text-zinc-950"
-          >
-            View Projects
-          </Link> */}
           </div>
 
           <div className="mt-10 border-t border-gray-200 pt-8">
