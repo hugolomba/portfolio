@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://teu-dominio.com"),
+  metadataBase: new URL("https://hugolomba.com"),
   title: {
     default: "Hugo Lomba | Software Developer",
     template: "%s | Hugo Lomba",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Hugo Lomba | Software Developer",
     description:
       "Portfolio of Hugo Lomba, a Software Developer based in Dublin, working across front-end, back-end and full-stack development.",
-    url: "https://teu-dominio.com",
+    url: "https://hugolomba.com",
     siteName: "Hugo Lomba Portfolio",
     locale: "en_IE",
     type: "website",
