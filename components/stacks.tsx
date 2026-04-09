@@ -35,7 +35,7 @@ export default function Stacks() {
     <div className="space-y-4">
       {stackGroups.map((group) => (
         <div key={group.title} className="space-y-2">
-          <div className="flex items-center gap-2">
+          <div className="justify-center md:justify-start flex items-center gap-2">
             <span
               className={`h-1.5 w-1.5 rounded-full ${group.accent} bg-current`}
             />
@@ -44,11 +44,11 @@ export default function Stacks() {
             </p>
           </div>
 
-          <div className="grid w-full grid-cols-3 gap-3">
+          <div className="flex flex-wrap justify-center gap-3 md:grid w-full md:grid-cols-3 md:gap-3">
             {group.items.map((stack) => (
               <div
                 key={stack.label}
-                className="group relative overflow-hidden rounded-[1.35rem] border border-white/70 bg-white/95 p-2 shadow-[0_10px_30px_rgba(0,0,0,0.045)] ring-1 ring-black/[0.03] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(0,0,0,0.07)]"
+                className="w-25 md:w-20 group relative overflow-hidden rounded-[1.35rem] border border-white/70 bg-white/95 p-2 shadow-[0_10px_30px_rgba(0,0,0,0.045)] ring-1 ring-black/[0.03] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(0,0,0,0.07)]"
               >
                 {/* <div
                   className={`absolute inset-x-0 top-0 h-[1px]  bg-current opacity-40`}

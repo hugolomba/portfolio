@@ -53,7 +53,7 @@ export default function ProjectDetailPage() {
   }
 
   return (
-    <main className="mt-16 mb-10 mx-auto max-w-7xl rounded-[2rem] border border-white/60 bg-white/70 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl sm:p-8">
+    <main className="mt-8 md:mt-16 mb-10 mx-auto max-w-7xl rounded-[2rem] border border-white/60 bg-white/70 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl sm:p-8">
       <div className="flex items-center gap-x-2 mb-6">
         <div className="flex gap-2">
           <span className="h-4 w-4 rounded-full bg-red-500"></span>

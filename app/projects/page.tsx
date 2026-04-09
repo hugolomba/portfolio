@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 pt-16 sm:pt-10">
+    <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 pt-10 md:pt-16 sm:pt-10">
       <section className="mx-auto max-w-3xl text-center">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-gray-500">
           My Work

@@ -25,7 +25,7 @@ export default function Projects() {
   return (
     <>
       <section className="mt-10 flex justify-center">
-        <div className="inline-flex gap-2 rounded-full border border-gray-200 bg-white/80 p-1 shadow-sm backdrop-blur-sm">
+        <div className="inline-flex md:gap-2 rounded-full border border-gray-200 bg-white/80 p-1 shadow-sm backdrop-blur-sm">
           {filters.map((filter) => (
             <button
               key={filter.value}

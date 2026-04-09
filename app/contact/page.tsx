@@ -1,7 +1,3 @@
-// "use client";
-
-// import { useState } from "react";
-// import { motion } from "motion/react";
 import type { Metadata } from "next";
 import ContactForm from "@/components/contact-form";
 

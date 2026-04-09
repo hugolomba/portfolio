@@ -1,7 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { format, subDays, addDays, startOfWeek, endOfWeek, eachDayOfInterval, isSameDay } from "date-fns";
+import {
+  format,
+  subDays,
+  addDays,
+  startOfWeek,
+  endOfWeek,
+  eachDayOfInterval,
+  isSameDay,
+} from "date-fns";
 
 interface ContributionDay {
   date: string; // ISO date string (e.g., "2025-09-13")
@@ -13,7 +21,10 @@ interface GitHubCalendarProps {
   colors?: string[]; // Custom color scale (default: GitHub-like greens)
 }
 
-const GitHubCalendar = ({ data, colors = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"] }: GitHubCalendarProps) => {
+const GitHubCalendar = ({
+  data,
+  colors = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+}: GitHubCalendarProps) => {
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
   const today = new Date();
   const startDate = subDays(today, 364); // One year back
@@ -22,7 +33,9 @@ const GitHubCalendar = ({ data, colors = ["#ebedf0", "#9be9a8", "#40c463", "#30a
 
   // Process data prop
   useEffect(() => {
-    setContributions(data.map((item) => ({ ...item, date: new Date(item.date) })));
+    setContributions(
+      data.map((item) => ({ ...item, date: new Date(item.date) })),
+    );
   }, [data]);
 
   // Get color based on contribution count
@@ -48,8 +61,12 @@ const GitHubCalendar = ({ data, colors = ["#ebedf0", "#9be9a8", "#40c463", "#30a
       weeksArray.push(
         <div key={i} className="flex flex-col gap-1">
           {weekDays.map((day, index) => {
-            const contribution = contributions.find((c) => isSameDay(new Date(c.date), day));
-            const color = contribution ? getColor(contribution.count) : colors[0];
+            const contribution = contributions.find((c) =>
+              isSameDay(new Date(c.date), day),
+            );
+            const color = contribution
+              ? getColor(contribution.count)
+              : colors[0];
 
             return (
               <div
@@ -60,7 +77,7 @@ const GitHubCalendar = ({ data, colors = ["#ebedf0", "#9be9a8", "#40c463", "#30a
               />
             );
           })}
-        </div>
+        </div>,
       );
       currentWeekStart = addDays(currentWeekStart, 7);
     }
@@ -76,7 +93,7 @@ const GitHubCalendar = ({ data, colors = ["#ebedf0", "#9be9a8", "#40c463", "#30a
       months.push(
         <span key={i} className="text-xs text-gray-500">
           {format(currentMonth, "MMM")}
-        </span>
+        </span>,
       );
       currentMonth = addDays(currentMonth, 30);
     }
@@ -97,14 +114,20 @@ const GitHubCalendar = ({ data, colors = ["#ebedf0", "#9be9a8", "#40c463", "#30a
           ))}
         </div>
         <div>
-          <div className="flex w-full justify-between gap-4 mb-2">{renderMonthLabels()}</div>
+          <div className="flex w-full justify-between gap-4 mb-2">
+            {renderMonthLabels()}
+          </div>
           <div className="flex gap-1">{renderWeeks()}</div>
         </div>
       </div>
       <div className="mt-4 justify-center flex gap-2 text-xs items-center">
         <span>Less</span>
         {colors.map((color, index) => (
-          <div key={index} className="w-3 h-3 rounded-[4px]" style={{ backgroundColor: color }} />
+          <div
+            key={index}
+            className="w-3 h-3 rounded-[4px]"
+            style={{ backgroundColor: color }}
+          />
         ))}
         <span>More</span>
       </div>
@@ -112,4 +135,4 @@ const GitHubCalendar = ({ data, colors = ["#ebedf0", "#9be9a8", "#40c463", "#30a
   );
 };
 
-export {GitHubCalendar};
+export { GitHubCalendar };
