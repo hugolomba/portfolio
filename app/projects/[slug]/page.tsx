@@ -17,17 +17,22 @@ export default function ProjectDetailPage() {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
 
-  const images = useMemo(() => {
-    const projectWithImages = project as typeof project & {
-      imageUrls?: string[];
-    };
+  const projectData = project as
+    | (typeof project & {
+        imageUrls?: string[];
+        features?: string[];
+      })
+    | undefined;
 
-    if (projectWithImages?.imageUrls?.length) {
-      return projectWithImages.imageUrls;
+  const images = useMemo(() => {
+    if (projectData?.imageUrls?.length) {
+      return projectData.imageUrls;
     }
 
     return project?.imageUrl ? [project.imageUrl] : [];
   }, [project]);
+
+  const features = projectData?.features ?? [];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -48,7 +53,7 @@ export default function ProjectDetailPage() {
   }
 
   return (
-    <main className="border-border rounded-3xl border bg-white/80 backdrop-blur-sm p-6 sm:p-8 flex flex-col justify-between relative shadow-xl mt-16 max-w-7xl mb-10 mx-auto">
+    <main className="mt-16 mb-10 mx-auto max-w-7xl rounded-[2rem] border border-white/60 bg-white/70 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl sm:p-8">
       <div className="flex items-center gap-x-2 mb-6">
         <div className="flex gap-2">
           <span className="h-4 w-4 rounded-full bg-red-500"></span>
@@ -64,19 +69,27 @@ export default function ProjectDetailPage() {
       </div>
 
       <article className="flex flex-col items-center">
-        <h3 className="text-4xl font-bold mb-10  text-center uppercase tracking-tighter">
-          {project.title}
-        </h3>
+        <div className="mb-10 max-w-3xl text-center">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.32em] text-gray-500">
+            Selected Project
+          </p>
+          <h1 className="text-4xl font-semibold tracking-[-0.04em] text-gray-950 sm:text-5xl">
+            {project.title}
+          </h1>
+          <p className="mt-4 text-base leading-7 text-gray-600 sm:text-lg">
+            {project.description}
+          </p>
+        </div>
 
-        <div className="w-full max-w-4xl mb-8">
-          <div className="relative w-full overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 aspect-[4/3] sm:aspect-[16/9] min-h-[280px] sm:min-h-0">
+        <div className="mb-8 w-full max-w-5xl">
+          <div className="relative min-h-[280px] w-full overflow-hidden rounded-[2rem] border border-white/70 bg-gradient-to-br from-gray-50 to-gray-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] aspect-[4/3] sm:min-h-0 sm:aspect-[16/9]">
             {images.length > 0 && (
               <Image
                 src={images[currentImageIndex]}
                 alt={`${project.title} screenshot ${currentImageIndex + 1}`}
                 fill
                 sizes="(min-width: 1024px) 896px, (min-width: 768px) 80vw, 100vw"
-                className="object-contain p-4"
+                className="object-contain p-5 sm:p-8"
               />
             )}
 
@@ -85,7 +98,7 @@ export default function ProjectDetailPage() {
                 <button
                   type="button"
                   onClick={goToPreviousImage}
-                  className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 rounded-full border border-gray-300 bg-white/90 p-3 sm:p-2 shadow transition hover:bg-white"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-white/80 bg-white/80 p-3 shadow-lg backdrop-blur transition hover:bg-white sm:left-5 sm:p-2.5"
                   aria-label="Previous image"
                 >
                   <ChevronLeft className="h-6 w-6 sm:h-5 sm:w-5" />
@@ -94,7 +107,7 @@ export default function ProjectDetailPage() {
                 <button
                   type="button"
                   onClick={goToNextImage}
-                  className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 rounded-full border border-gray-300 bg-white/90 p-3 sm:p-2 shadow transition hover:bg-white"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-white/80 bg-white/80 p-3 shadow-lg backdrop-blur transition hover:bg-white sm:right-5 sm:p-2.5"
                   aria-label="Next image"
                 >
                   <ChevronRight className="h-6 w-6 sm:h-5 sm:w-5" />
@@ -126,7 +139,7 @@ export default function ProjectDetailPage() {
           <Link
             href={project.url}
             target="_blank"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium shadow border border-gray-300 bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-medium text-gray-900 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
           >
             <Globe />
             View Project
@@ -135,63 +148,98 @@ export default function ProjectDetailPage() {
           <Link
             href={project.github}
             target="_blank"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium shadow border border-gray-300 bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-medium text-gray-900 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
           >
             <Github />
             View Code
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-12 gap-8 mt-10 w-full">
-          <div className="md:col-span-7">
-            <div>
-              <h4 className="font-bold text-2xl mb-4">About</h4>
-              <p className="mb-4">{project.longDescription}</p>
+        <div className="mt-12 ">
+          <section className="grid w-full gap-6 lg:grid-cols-[1.35fr_0.95fr] lg:gap-10">
+            <div className="flex min-w-0 flex-col gap-6">
+              <div className="rounded-[2rem] border border-white/70 bg-white/80 p-6 shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur sm:p-8">
+                <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-gray-500">
+                  Overview
+                </p>
+                <h2 className="mb-4 text-2xl font-semibold tracking-[-0.03em] text-gray-950">
+                  About the project
+                </h2>
+                <div className="space-y-4 text-[15px] leading-7 text-gray-600 sm:text-base">
+                  {project.longDescription
+                    .split("\n")
+                    .filter((paragraph) => paragraph.trim())
+                    .map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
+                    ))}
+                </div>
+              </div>
+
+              <div className="rounded-[2rem] border border-white/70 bg-white/80 p-6 shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur sm:p-8">
+                <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-gray-500">
+                  What it includes
+                </p>
+                <h2 className="mb-5 text-2xl font-semibold tracking-[-0.03em] text-gray-950">
+                  Key features
+                </h2>
+                <ul className="space-y-3">
+                  {features.map((feature: string, index: number) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 text-sm leading-6 text-gray-700"
+                    >
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gray-900" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            <div>
-              <h4 className="font-bold text-2xl mb-4">Features</h4>
-              <ul className="list-disc list-inside mb-4">
-                {project.technologies.map((feature: string, index: number) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
+            <div className="flex min-w-0 flex-col gap-6">
+              <div className="rounded-[2rem] border border-white/70 bg-white/80 p-6 shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur sm:p-8">
+                <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-gray-500">
+                  Stack
+                </p>
+                <h2 className="mb-5 text-2xl font-semibold tracking-[-0.03em] text-gray-950">
+                  Technologies used
+                </h2>
+                <ul className="flex flex-wrap gap-3">
+                  {project.technologies.map((tech: string, index: number) => (
+                    <li
+                      key={index}
+                      className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm"
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="rounded-[2rem] border border-white/70 bg-white/80 p-6 shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur sm:p-8">
+                <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-gray-500">
+                  Process
+                </p>
+                <h4 className="mb-5 flex flex-row items-center justify-start gap-x-2 text-2xl font-semibold tracking-[-0.03em] text-gray-950">
+                  <Code /> Decision Log
+                </h4>
+
+                <ul className="space-y-4">
+                  {project.decisionLog.map((entry, index: number) => (
+                    <li key={index}>
+                      <h5 className="flex flex-row items-center gap-x-2 text-lg font-semibold">
+                        <CircleArrowRight />
+                        {entry.title}
+                      </h5>
+                      <p className="ml-3 border-l-2 border-amber-400 px-6">
+                        {entry.description}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-
-            <div>
-              <h4 className="font-bold text-2xl mb-4">Tech</h4>
-              <ul className="list-none flex flex-row flex-wrap gap-2 mt-2">
-                {project.technologies.map((tech: string, index: number) => (
-                  <li
-                    key={index}
-                    className="bg-gray-800 text-white px-2 py-1 rounded-full"
-                  >
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="md:col-span-5">
-            <h4 className="font-bold text-2xl mb-4 text-center flex flex-row items-center justify-center gap-x-2">
-              <Code /> Decision Log
-            </h4>
-
-            <ul>
-              {project.decisionLog.map((entry, index: number) => (
-                <li key={index} className="mb-4">
-                  <h5 className="font-semibold text-lg flex flex-row items-center gap-x-2">
-                    <CircleArrowRight />
-                    {entry.title}
-                  </h5>
-                  <p className="ml-3 border-l-2 border-amber-400 px-6 bg-left ">
-                    {entry.description}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
+          </section>
         </div>
 
         {moreProjects.length > 0 && (
@@ -219,7 +267,7 @@ export default function ProjectDetailPage() {
                 <Link
                   key={relatedProject.slug}
                   href={`/projects/${relatedProject.slug}`}
-                  className="group rounded-3xl border border-gray-200 bg-gradient-to-b from-white to-gray-50 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  className="group rounded-[1.75rem] border border-white/70 bg-white/80 p-5 shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                 >
                   <div className="mb-4">
                     <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">

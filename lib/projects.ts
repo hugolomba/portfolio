@@ -127,98 +127,22 @@ export const projects = [
     longDescription: `
 Housemates is a full-stack web application designed to help people organise, manage and access everything in a shared house. People living in shared houses often struggle to manage shared information. This is usually scattered across messaging apps, making it hard to find, easy to forget and frustrating to manage. Housemates solves this by centralising all shared-house information in one secure place.
 
-It provides a protected space where house members can:
+It provides a protected space where house members can manage bills and shared expenses, track tasks and responsibilities, create alerts with different priority levels, store shared credentials, and invite new members using an invite code.
 
-manage bills and shared expenses
-track tasks and responsibilities
-create alerts with different priority levels
-store shared credentials
-invite new members using an invite code
-
-## Key Features
-
-### House Management
-
-- Create a new house or join an existing one using an invite code
-- Secure, house-based access control
-- Invite and manage house members
-- the app keeps an activity feed of all actions taken in the house
-
-### Dashboard Overview
-
-- Active alerts sorted by priority (urgent, high, medium, low)
-- Upcoming bills due in the next days
-- Pending tasks
-- Recent activity feed
-- In the desktop version, it also has a dashboard style layout for better visual organisation
-
-### Bills & Shared Expenses
-
-- Create, edit and delete bills
-- Split bills between house members
-- Track how much each user owes
-- Manual payment tracking
-- Paid / unpaid status per user share
-
-### Tasks
-
-- Create and assign tasks
-- Track task completion status
-- Track tasks by room or category
-
-### Alerts
-
-- See alerts overview on dashboard
-- Create alerts related to the house
-- Priority levels: urgent, high, medium, low
-- Mark alerts as resolved
-
-### Rooms
-
-- Create and manage house rooms
-- Organise responsibilities per room
-- Define room-specific tasks
-- Define users in rooms (e.g. Alice is user of Alice's room)
-- Define common rooms (e.g. kitchen, living room)
-
-### Credentials
-
-- Store shared credentials (e.g. Wi-Fi, services)
-- **Securely encrypted** storage of credentials
-- Accessible only to authorised house members
-
-### Activity Feed
-
-- Track recent house activity
-- See who created, updated or deleted bills, tasks, alerts and credentials
-
-### Authentication & Authorisation
-
-- Email and password authentication
-- Google authentication
-- Session handling with **BetterAuth**
-- Protected routes and server actions
-- Authorisation checks to ensure users can only access and modify houses they belong to
-
-### Tech Stack
-
-- **Frontend:** Next.js (App Router) with Typescript and Tailwind CSS
-- **Backend:** Next.js Server Actions with Typescript
-- **Database:** PostgreSQL
-- **ORM:** Prisma
-- **Authentication:** BetterAuth
-- **Architecture:** Server Components + Client Components with Typescript
-- **Security:** Authentication and authorisation at route and action level
-
-### Future Improvements
-
-- Push and email notifications for alerts and bills
-- Real payment integrations
-- Activity analytics and insights
-- Role-based permissions (e.g. admin, member)
-- Mobile app version
-- More integrations (e.g. calendar sync, task management tools)
+The application also includes house-based authorisation, protected routes, and secure authentication to ensure that only authorised members can access and manage house data.
 `,
+    features: [
+      "Create or join a house using an invite code",
+      "Manage members with secure house-based access control",
+      "Track shared bills, split costs, and monitor payment status",
+      "Create, assign, and complete household tasks",
+      "Manage alerts by priority and mark them as resolved",
+      "Organise rooms, responsibilities, and common areas",
+      "Store shared credentials securely with encryption",
+      "View upcoming bills, pending tasks, and recent activity from a central dashboard",
+      "Authenticate with email/password or Google using Better Auth",
+      "Protect routes and actions with server-side authorisation checks",
+    ],
     technologies: [
       "Next.js",
       "React",
@@ -270,20 +194,21 @@ invite new members using an invite code
     description:
       "A full-stack blog built with Next.js. Users can read, like, save, and comment on posts, and signed-up users can create, edit, or delete their own posts.",
     longDescription: `
-This project is a social media–style blog where users can create and share posts, edit and delete their content, and interact with other users' posts. The users can sign up and log in with multiple authentication methods, including email, Google, and GitHub. The project is developed with Next.js, TypeScript, Tailwind CSS, PostgreSQL, Prisma, Better Auth, and it has full CRUD functionality.
+This project is a social media-style blog where users can create and share posts, edit and delete their content, and interact with other users' posts. Users can sign up and log in with multiple authentication methods, including email, Google, and GitHub.
 
-I created this project as a portfolio piece to practice full-stack development concepts and build a real-world social platform experience.
+I created this project as a portfolio piece to practise full-stack development concepts and build a real-world social platform experience.
 
-## Features
-
-- **Full CRUD (Create, Read, Update, Delete)**: Users can create new blog posts, edit existing ones, view all posts, and delete content safely.
-- **User Authentication**: Integration with BetterAuth, supporting login via email, Google, and GitHub.
-- **Dynamic Routes & SEO Optimization**
-- **Responsive Design**
-- **Database Integration**: Uses Prisma to manage the PostgreSQL database efficiently, demonstrating knowledge of data modelling, migrations, and query handling.
-- **TypeScript for type safety**
-- **Modular and reusable React components**
+The project is developed with Next.js, TypeScript, Tailwind CSS, PostgreSQL, Prisma, Better Auth, and full CRUD functionality.
 `,
+    features: [
+      "Create, edit, and delete blog posts with full CRUD functionality",
+      "Like, save, and comment on posts",
+      "Restrict content management to the post author",
+      "Authenticate with email, Google, or GitHub",
+      "Use dynamic routes with SEO-friendly rendering",
+      "Build the application with reusable components and strong typing",
+      "Persist data with PostgreSQL and Prisma",
+    ],
     technologies: [
       "Next.js",
       "React",
@@ -334,13 +259,17 @@ I created this project as a portfolio piece to practice full-stack development c
     description:
       "An interactive project displaying information about celestial bodies in the solar system. Fully developed from scratch with a custom API and interactive animations.",
     longDescription: `
-**The Solar System 2** is an interactive full-stack project I rebuilt to enhance my skills in React, TypeScript, and full-stack development. The project displays information about celestial bodies including planets, dwarf planets, asteroids, and galaxies. I focused on creating a custom API, improving the design, and adding interactive animations to make the project more complete.
+The Solar System 2 is an interactive full-stack project I rebuilt to strengthen my skills in React, TypeScript, and full-stack development. The project displays information about celestial bodies including planets, dwarf planets, asteroids, and galaxies.
 
-## Features
-- **List of Celestial Bodies**: Browse a comprehensive list of planets, dwarf planets, asteroids, and galaxies.
-- **Custom API**: Backend built with Node.js, Express, and TypeScript providing data about celestial bodies.
-- **Interactive Frontend**: Developed with React, TypeScript, and Tailwind CSS for a responsive and engaging user experience.
+I focused on creating a custom API, improving the design, and adding interactive animations to make the project more complete and engaging.
 `,
+    features: [
+      "Browse planets, dwarf planets, asteroids, and galaxies",
+      "Consume data from a custom API built for the project",
+      "Explore an interactive interface built with React and TypeScript",
+      "Use responsive layouts for desktop and mobile viewing",
+      "Enhance discovery with animations and interactive transitions",
+    ],
     technologies: ["React", "TypeScript", "Tailwind CSS"],
     imageUrl:
       "https://res.cloudinary.com/dck0d5qwp/image/upload/v1758065239/Screenshot_2025-09-17_at_00.24.58_lu1elj.png",
@@ -382,17 +311,18 @@ I created this project as a portfolio piece to practice full-stack development c
     description:
       "A responsive weather web app that displays current weather based on geolocation or city search, with search history and dynamic interactions.",
     longDescription: `
-**Weather App** is a responsive web application powered by the Visual Crossing Weather API. Users can view the current weather for their location or search for any city worldwide. The app features dynamic content updates, responsive design, and interactive elements to improve user experience.
+Weather App is a responsive web application powered by the Visual Crossing Weather API. Users can view the current weather for their location or search for any city worldwide.
 
-## Features
-- **Automatic Geolocation**: Displays weather automatically based on user's location.
-- **City Search**: Fetch live weather data for any city.
-- **Local Time Display**: Shows time based on the selected city's timezone.
-- **Search History**: Saves and displays previous searches, with clickable items to reload weather data.
-- **Highlight Last Search**: The most recent search is automatically highlighted.
-- **Responsive Design**: Built with Flexbox and media queries for mobile and desktop.
-- **Dynamic Interactions**: Handles user events, conditional styling, form validation, and DOM updates.
+The project focuses on dynamic content updates, responsive design, and interactive elements that improve usability and user experience.
 `,
+    features: [
+      "Display live weather using geolocation or manual city search",
+      "Show local time based on the selected city's timezone",
+      "Store recent searches for quick access",
+      "Highlight the latest searched location automatically",
+      "Support responsive layouts and dynamic UI updates",
+      "Validate user input and update the DOM in real time",
+    ],
     technologies: [
       "HTML5",
       "CSS3",
@@ -436,16 +366,18 @@ I created this project as a portfolio piece to practice full-stack development c
     description:
       "A full-featured blog API built with Node.js, Express, and Prisma, supporting JWT authentication, image uploads, data validation, and endpoints for users, posts, and comments.",
     longDescription: `
-**Blog API** is a backend application built with Node.js, Express, and Prisma. It provides all necessary endpoints for managing users, posts, and comments in a blog application. The API supports JWT authentication, image upload using Multer + Cloudinary, data validation with Joi, and password hashing with bcrypt/bcryptjs.
+Blog API is a backend application built with Node.js, Express, and Prisma. It provides the necessary endpoints for managing users, posts, and comments in a blog application.
 
-## Features
-- **Authentication**: JWT-based login and registration with optional avatar upload.
-- **User Management**: CRUD operations for users, password changes, profile editing, and admin-only routes.
-- **Post Management**: Create, edit, delete, like, save, and search posts with optional cover images.
-- **Comment Management**: CRUD operations for comments and ability to like comments.
-- **Validation & Security**: Input validation with Joi, password hashing, and protected routes with JWT.
-- **Error Handling**: Centralized error handling with JSON responses for unknown routes and errors.
+The API supports JWT authentication, image upload with Multer and Cloudinary, data validation with Joi, and password hashing for secure user management.
 `,
+    features: [
+      "Handle authentication with JWT, password hashing, and protected routes",
+      "Support avatar and cover image uploads with Multer and Cloudinary",
+      "Provide CRUD operations for users, posts, and comments",
+      "Allow post likes, saves, and search functionality",
+      "Restrict sensitive actions through admin-only access",
+      "Validate input with Joi and manage errors centrally",
+    ],
     technologies: [
       "Node.js 18+",
       "Express 5",
@@ -494,22 +426,17 @@ I created this project as a portfolio piece to practice full-stack development c
     description:
       "A simple RESTful API providing information about celestial objects such as planets, dwarf planets, asteroids, and galaxies.",
     longDescription: `
-**Solar System API** is a RESTful backend application built with Node.js and Express. It provides endpoints to retrieve detailed information about celestial objects including planets, dwarf planets, asteroids, stars, and galaxies.
+Solar System API is a RESTful backend application built with Node.js and Express. It provides endpoints to retrieve detailed information about celestial objects including planets, dwarf planets, asteroids, stars, and galaxies.
 
-## Available Routes
-- **GET /**: Welcome message and available routes
-- **GET /all**: Retrieve the complete dataset
-- **GET /planets**: List all planets
-- **GET /planets/:name**: Get detailed information about a specific planet
-- **GET /stars/**: Get all stars
-- **GET /stars/:name**: Get detailed information about a specific star
-- **GET /dwarf-planets**: List all dwarf planets
-- **GET /dwarf-planets/:name**: Get detailed information about a specific dwarf planet
-- **GET /planets-and-dwarfs**: List all planets and dwarf planets together
-- **GET /asteroids**: List all asteroids
-- **GET /galaxies**: List all galaxies
-- **GET /find/:tag**: Search for objects by tag (supports partial search)
+The API was built to serve structured astronomy data in a clean and reusable way.
 `,
+    features: [
+      "Expose RESTful routes for planets, stars, dwarf planets, asteroids, and galaxies",
+      "Return the full dataset or filter data by object type",
+      "Retrieve individual celestial objects by name",
+      "Support partial searches through a dedicated find endpoint",
+      "Present a clear entry route with API guidance",
+    ],
     technologies: ["Node.js", "Express"],
     imageUrl:
       "https://res.cloudinary.com/dck0d5qwp/image/upload/v1763034287/api-integration_z6qsca.webp",
@@ -548,15 +475,18 @@ I created this project as a portfolio piece to practice full-stack development c
     description:
       "A personal project to manage a complete inventory of Dublin pubs, including drinks and events, with secure admin authentication for destructive actions.",
     longDescription: `
-**Dublin Pub Inventory** is a full-stack project designed to practice backend and frontend development. Users can browse, search, create, and delete records of pubs, drinks, and events, with admin authentication required for destructive actions.
+Dublin Pub Inventory is a full-stack project designed to practise backend and frontend development. Users can browse, search, create, and delete records of pubs, drinks, and events, with admin authentication required for destructive actions.
 
-## Key Features
-- **Backend**: PostgreSQL database with multiple related tables (pubs, drinks, events, categories) and foreign key constraints.
-- **API and Routing**: RESTful routes for CRUD operations, search functionality, and secure deletion with admin authentication.
-- **Templating and Views**: Dynamic views built with EJS for listing, creating, updating, and viewing pub details.
-- **Frontend and UX**: Styled with CSS, responsive layouts, a navbar, and interactive elements for a user-friendly experience.
-- **Data Management**: Seed scripts populate the database with realistic Dublin pub data for testing and demonstration.
+The project combines database relationships, server-rendered views, and practical CRUD operations around realistic inventory data.
 `,
+    features: [
+      "Manage pubs, drinks, events, and categories with relational PostgreSQL data",
+      "Use RESTful CRUD routes for creating, updating, viewing, and deleting records",
+      "Search inventory records quickly",
+      "Protect destructive actions with admin authentication",
+      "Render dynamic pages with EJS",
+      "Populate the app with realistic Dublin pub seed data",
+    ],
     technologies: ["Node.js", "Express", "PostgreSQL", "EJS", "CSS"],
     imageUrl:
       "https://github.com/hugolomba/dublin-pub-inventory/raw/main/public/images/screenshot.png",
@@ -597,23 +527,18 @@ I created this project as a portfolio piece to practice full-stack development c
     description:
       "A fictional digital banking app built with JavaScript, simulating real-world operations like login, transfers, loans, and account management.",
     longDescription: `
-**Bankist App** is a fictional online banking application developed to practise modern JavaScript concepts. It simulates real-world banking operations while showcasing array methods, DOM manipulation, and event handling.
+Bankist App is a fictional online banking application developed to practise modern JavaScript concepts. It simulates real-world banking operations while showcasing array methods, DOM manipulation, and event handling.
 
-## Features
-- **Login**: Authenticate using username and PIN.
-- **Dynamic UI**: Balance, transactions, and summaries update based on user actions.
-- **Transfers**: Money transfers between accounts with validation.
-- **Loans**: Eligibility-checked loan requests.
-- **Account Closure**: Secure account deletion with username and PIN.
-- **Financial Summary**: Overview of incomes, expenses, and interest.
-- **Sorting**: Transactions sorted in ascending or descending order.
-- **Logout Timer**: Automatic logout for security (in progress).
-
-## Technologies and Skills Demonstrated
-- **HTML & CSS**: Semantic structure, responsive layout, and styled UI with navigation and operation sections.
-- **JavaScript (ES6+)**: DOM manipulation, event handling, array methods (*map, filter, reduce, find, some, every, sort*), modular helper functions, form validation, and dynamic username generation.
-- **Business Logic**: Realistic constraints for transfers, loans, and account closures tied to user input and balance.
+The project was built to make business logic visible through an interactive user interface.
 `,
+    features: [
+      "Log in with a username and PIN",
+      "View balances, transactions, and financial summaries dynamically",
+      "Transfer money between accounts with validation",
+      "Request loans based on eligibility rules",
+      "Sort transactions and close accounts securely",
+      "Use an automatic logout timer for extra security",
+    ],
     technologies: ["HTML5", "CSS3", "JavaScript (ES6+)"],
     imageUrl:
       "https://github.com/hugolomba/bankist-app/raw/main/images/screenshot.png",
@@ -652,23 +577,18 @@ I created this project as a portfolio piece to practice full-stack development c
     description:
       "A modern and responsive banking landing page built with HTML, CSS, and JavaScript, featuring smooth animations, lazy loading, and interactive components.",
     longDescription: `
-**Bankist Website** is a modern, responsive, and interactive landing page simulating a real-world financial product. Built as part of an advanced JavaScript course, it demonstrates DOM manipulation, event handling, and performance-focused techniques to enhance user experience.
-
-## Features
-- **Smooth Navigation**: Scroll-based navigation with sticky header.
-- **Tabbed Component**: Switch between sections seamlessly.
-- **Section Reveal**: Animated reveal on scroll for dynamic interaction.
-- **Lazy Loading**: Optimised image loading for performance.
-- **Modal Form**: Interactive modal to simulate account opening.
-- **Content Slider**: Fully functional slider with arrows, dots, and keyboard support.
-
-## What I Learned & Applied
-- **JavaScript (ES6+)**: DOM manipulation, event handling, delegation, bubbling, capturing, and modular reusable code.
-- **Intersection Observer API**: Implemented for sticky navigation, lazy loading, and reveal animations.
-- **HTML & CSS**: Semantic structure, responsive design with Flexbox and Grid, CSS custom properties, transitions, and animations.
+Bankist Website is a modern, responsive, and interactive landing page simulating a real-world financial product. Built as part of an advanced JavaScript course, it demonstrates DOM manipulation, event handling, and performance-focused techniques to enhance user experience.
 
 This project highlights practical application of modern JavaScript patterns with a strong focus on clean UI, UX, and performance.
 `,
+    features: [
+      "Navigate smoothly with a sticky header",
+      "Switch content through a tabbed interface",
+      "Reveal sections on scroll for a more polished experience",
+      "Improve performance with lazy-loaded images",
+      "Interact with modal and slider components",
+      "Use the Intersection Observer API for modern UI behaviour",
+    ],
     technologies: [
       "HTML5",
       "CSS3",
@@ -713,13 +633,17 @@ This project highlights practical application of modern JavaScript patterns with
     description:
       "A fast-paced browser game where you pilot a UFO and abduct creatures while dodging obstacles. Includes audio feedback, difficulty progression, and multilingual support.",
     longDescription: `
-Take control of a UFO and embark on a fast-paced mission to abduct creatures while dodging obstacles in this browser-based arcade game.
+The Abduction Game is a browser-based arcade game where the player controls a UFO and abducts creatures while dodging obstacles.
 
-## Features
-- **Audio Feedback**: Immersive sound effects enhance the gameplay experience.
-- **Difficulty Progression**: Levels become more challenging as you advance.
-- **Multilingual Support**: Play the game in multiple languages for a broader reach.
+The project was designed as a fast-paced interactive experience with progression, sound feedback, and multilingual support.
 `,
+    features: [
+      "Play a fast-paced arcade game with increasing difficulty",
+      "Control gameplay through an HTML5 Canvas interface",
+      "Use audio feedback to reinforce actions and events",
+      "Progress through more challenging stages",
+      "Access the game in multiple languages",
+    ],
     technologies: ["JavaScript", "HTML5 Canvas", "CSS3"],
     imageUrl:
       "https://github.com/hugolomba/abduction-game/raw/master/img/README-images/demo-img.png",
