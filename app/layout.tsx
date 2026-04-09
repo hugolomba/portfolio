@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import { AnimatePresence } from "motion/react";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -73,6 +74,7 @@ export default function RootLayout({
 
         {/* <AnimatePresence mode="wait"> */}
         {children}
+        <Analytics />
         {/* </AnimatePresence> */}
       </body>
     </html>

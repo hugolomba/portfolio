@@ -12,6 +12,7 @@
     "@heroui/modal": "^2.2.26",
     "@motionone/utils": "^10.18.0",
     "@radix-ui/react-accordion": "^1.2.12",
+    "@vercel/analytics": "^2.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",

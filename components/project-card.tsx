@@ -3,9 +3,36 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function ProjectCard({ project }: { project: any }) {
+type ProjectCardProject = {
+  title: string;
+  type: string;
+  slug: string;
+  description: string;
+  technologies: string[];
+  imageUrl?: string;
+  imageUrls?: string[];
+};
+
+export default function ProjectCard({
+  project,
+}: {
+  project: ProjectCardProject;
+}) {
   const previewImage =
     project.imageUrl || project.imageUrls?.[0] || "/images/placeholder.png";
+
+  function getLabel(type: string) {
+    switch (type.toLowerCase()) {
+      case "front":
+        return "Front-end";
+      case "back":
+        return "Back-end";
+      case "fullstack":
+        return "Full Stack";
+      default:
+        return type;
+    }
+  }
 
   return (
     <Link href={`/projects/${project.slug}`} className="block group h-full">
@@ -31,7 +58,7 @@ export default function ProjectCard({ project }: { project: any }) {
         <div className="flex flex-1 flex-col">
           <div className="mb-5">
             <span className="mb-3 inline-flex text-[11px] font-semibold uppercase tracking-[0.24em] text-gray-500">
-              Selected Project
+              {getLabel(project.type)}
             </span>
             <h3 className="mb-3 text-2xl font-semibold tracking-tight text-gray-950 line-clamp-1">
               {project.title}
