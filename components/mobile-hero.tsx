@@ -7,7 +7,7 @@ import GreetingWidget from "./ui/data-greeting";
 export default function MobileHero() {
   return (
     <motion.section
-      className="mt-5 mb-24 grid grid-cols-1 gap-4 px-1 md:hidden"
+      className="mt-5 mb-24 grid grid-cols-1 gap-4 px-1 lg:hidden"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
@@ -121,12 +121,13 @@ export default function MobileHero() {
             </div>
           </div>
 
-          <div className="mb-5 flex items-center justify-center gap-3 mt-6">
-            <p className="text-lg font-semibold uppercase tracking-[0.24em] text-zinc-500">
+          <div className="mb-5 flex items-center justify-center gap-3 mt-6 flex-col">
+            <p className="text-lg font-semibold uppercase tracking-[0.24em] text-zinc-500 " >
               Tech Stack
             </p>
+            <Stacks />
           </div>
-          <Stacks />
+          
 
           <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
             <a

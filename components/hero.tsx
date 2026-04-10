@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <>
       <motion.section
-        className="hidden mt-5 mb-32 md:grid grid-cols-1 gap-3 px-1 md:mt-10 md:mb-40 md:grid-cols-4 md:gap-6"
+        className="hidden mt-5 mb-32 lg:grid grid-cols-1 gap-3 px-1 lg:mt-10 lg:mb-40 lg:grid-cols-4 lg:gap-6"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
@@ -147,11 +147,11 @@ export default function Hero() {
           </header>
 
           <div className="flex h-full flex-col gap-3 md:flex-row md:gap-6">
-            <div className="hidden md:block overflow-hidden rounded-[2rem] border border-gray-200/70 bg-white/85 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-sm md:flex-1">
+            <div className="hidden xl:block overflow-hidden rounded-[2rem] border border-gray-200/70 bg-white/85 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-sm md:flex-1">
               <CodeBlockBasic />
             </div>
 
-            <div className="rounded-[2rem] border border-gray-200/70 bg-white/85 p-5 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-sm md:w-[20rem] md:p-6">
+            <div className="w-full rounded-[2rem] border border-gray-200/70 bg-white/85 p-5 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-sm xl:w-[22rem] md:p-6">
               <div className="mb-5">
                 <p className="text-md font-semibold uppercase tracking-[0.24em] text-zinc-500">
                   Tech Stack
