@@ -52,6 +52,19 @@ export default function ProjectDetailPage() {
     return <div className="mt-16">Project not found</div>;
   }
 
+  function getLabel(type: string) {
+    switch (type.toLowerCase()) {
+      case "front":
+        return "Front-end";
+      case "back":
+        return "Back-end";
+      case "fullstack":
+        return "Full Stack";
+      default:
+        return type;
+    }
+  }
+
   return (
     <main className="mt-8 md:mt-16 mb-10 mx-auto max-w-7xl rounded-[2rem] border border-white/60 bg-white/70 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl sm:p-8">
       <div className="flex items-center gap-x-2 mb-6">
@@ -71,7 +84,7 @@ export default function ProjectDetailPage() {
       <article className="flex flex-col items-center">
         <div className="mb-10 max-w-3xl text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.32em] text-gray-500">
-            Selected Project
+            {getLabel(project.type)}
           </p>
           <h1 className="text-4xl font-semibold tracking-[-0.04em] text-gray-950 sm:text-5xl">
             {project.title}
