@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://hugolomba.com"),
   title: {
-    default: "Hugo Lomba | Software Developer",
-    template: "%s | Hugo Lomba",
+    default: "Hugo Lomba | Software Developer Portfolio in Dublin",
+    template: "%s | Hugo Lomba - Software Developer Portfolio in Dublin",
   },
   description:
-    "Portfolio of Hugo Lomba, a Software Developer based in Dublin, working across front-end, back-end and full-stack development.",
+    "Software Developer based in Dublin specialising in front-end, back-end and full-stack web development using Java, Spring Boot, TypeScript, React and modern technologies.",
   keywords: [
     "Hugo Lomba",
     "Software Developer",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Hugo Lomba | Software Developer",
+    title: "Hugo Lomba | Software Developer Portfolio in Dublin",
     description:
-      "Hugo Lomba is a Software Developer based in Dublin, building responsive front-end, back-end and full-stack web applications with React, Next.js, Java and Spring Boot.",
+    "Software Developer based in Dublin specialising in front-end, back-end and full-stack web development using Java, Spring Boot, TypeScript, React and modern technologies.",
     url: "https://hugolomba.com",
     siteName: "Hugo Lomba Portfolio",
     locale: "en_IE",
@@ -67,9 +67,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hugo Lomba | Software Developer",
+    title: "Hugo Lomba | Software Developer Portfolio in Dublin",
     description:
-      "Portfolio of Hugo Lomba, a Software Developer based in Dublin, working across front-end, back-end and full-stack development.",
+    "Software Developer based in Dublin specialising in front-end, back-end and full-stack web development using Java, Spring Boot, TypeScript, React and modern technologies.",
     images: ["/og-image.png"],
   },
   robots: {

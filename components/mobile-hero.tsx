@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import Stacks from "./stacks";
-import GreetingWidget from "./ui/data-greeting";
 
 export default function MobileHero() {
   return (
