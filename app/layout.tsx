@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.hugolomba.com/og-image.png",
+        url: "https://www.hugolomba.com/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Hugo Lomba Portfolio",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Hugo Lomba | Software Developer Portfolio in Dublin",
     description:
       "Software Developer based in Dublin specialising in front-end, back-end and full-stack web development using Java, Spring Boot, TypeScript, React and modern technologies.",
-    images: ["https://www.hugolomba.com/og-image.png"],
+    images: ["https://www.hugolomba.com/opengraph-image.jpg"],
   },
 };
 
