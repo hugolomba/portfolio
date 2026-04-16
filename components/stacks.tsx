@@ -21,10 +21,10 @@ const stackGroups = [
     title: "Backend",
     accent: "text-emerald-500/80",
     items: [
-      { icon: <IoLogoNodejs />, label: "Node.js" },
-      { icon: <SiExpress />, label: "Express.js" },
       { icon: <FaJava />, label: "Java" },
       { icon: <BiLogoSpringBoot />, label: "Spring Boot" },
+      { icon: <IoLogoNodejs />, label: "Node.js" },
+      { icon: <SiExpress />, label: "Express.js" },
       { icon: <TbSql />, label: "SQL" },
     ],
   },

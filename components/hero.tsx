@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <>
       <motion.section
-        className="hidden mt-5 mb-32 lg:grid grid-cols-1 gap-3 px-1 lg:mt-10 lg:mb-40 lg:grid-cols-4 lg:gap-6"
+        className="hidden mt-5 mb-5 lg:grid grid-cols-1 gap-3 px-1 lg:mt-10 lg:grid-cols-4 lg:gap-6"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}

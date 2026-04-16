@@ -1,5 +1,7 @@
 export default function AboutPage() {
   const stack = [
+    "Java",
+    "Spring Boot",
     "HTML",
     "CSS",
     "JavaScript",
@@ -7,7 +9,8 @@ export default function AboutPage() {
     "React",
     "Next.js",
     "Node.js",
-    "MongoDB",
+    "Express.js",
+    "SQL",
   ];
 
   const softSkills = [

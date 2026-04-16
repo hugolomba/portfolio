@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import { AnimatePresence } from "motion/react";
 import { Analytics } from "@vercel/analytics/next";
+import Footer from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -71,11 +72,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-linear`}
       >
         <Navbar />
-
-        {/* <AnimatePresence mode="wait"> */}
         {children}
+        <Footer />
         <Analytics />
-        {/* </AnimatePresence> */}
       </body>
     </html>
   );
