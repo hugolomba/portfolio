@@ -106,9 +106,9 @@ export default function MobileHero() {
             </div>
 
             <div className="mt-4 space-y-1">
-              <h1 className="uppercase text-4xl font-bold tracking-tight text-zinc-950">
+              <h2 className="uppercase text-4xl font-bold tracking-tight text-zinc-950">
                 Hugo Lomba
-              </h1>
+              </h2>
               <div className="mt-4 space-y-1 text-md text-zinc-500">
                 <p>🎓 Computer Science Graduate</p>
                 <p>📍 Based in Dublin, Ireland</p>
