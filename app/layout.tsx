@@ -16,27 +16,49 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.hugolomba.com"),
+  metadataBase: new URL("https://hugolomba.com"),
   title: {
     default: "Hugo Lomba | Software Developer Portfolio in Dublin",
     template: "%s | Hugo Lomba - Software Developer Portfolio in Dublin",
   },
   description:
     "Software Developer based in Dublin specialising in front-end, back-end and full-stack web development using Java, Spring Boot, TypeScript, React and modern technologies.",
+  keywords: [
+    "Hugo Lomba",
+    "Software Developer",
+    "Full-Stack Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Java",
+    "Spring Boot",
+    "React",
+    "Next.js",
+    "Node.js",
+    "JavaScript",
+    "Web Developer",
+    "Dublin",
+    "Ireland",
+  ],
+  authors: [{ name: "Hugo Lomba" }],
+  creator: "Hugo Lomba",
   alternates: {
-    canonical: "https://www.hugolomba.com",
+    canonical: "https://hugolomba.com",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "Hugo Lomba | Software Developer Portfolio in Dublin",
     description:
-      "Software Developer based in Dublin specialising in front-end, back-end and full-stack web development using Java, Spring Boot, TypeScript, React and modern technologies.",
-    url: "https://www.hugolomba.com",
+    "Software Developer based in Dublin specialising in front-end, back-end and full-stack web development using Java, Spring Boot, TypeScript, React and modern technologies.",
+    url: "https://hugolomba.com",
     siteName: "Hugo Lomba Portfolio",
     locale: "en_IE",
     type: "website",
     images: [
       {
-        url: "https://www.hugolomba.com/opengraph-image.jpg",
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Hugo Lomba Portfolio",
@@ -47,8 +69,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hugo Lomba | Software Developer Portfolio in Dublin",
     description:
-      "Software Developer based in Dublin specialising in front-end, back-end and full-stack web development using Java, Spring Boot, TypeScript, React and modern technologies.",
-    images: ["https://www.hugolomba.com/opengraph-image.jpg"],
+    "Software Developer based in Dublin specialising in front-end, back-end and full-stack web development using Java, Spring Boot, TypeScript, React and modern technologies.",
+    images: ["/opengraph-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
