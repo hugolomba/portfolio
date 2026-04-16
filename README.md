@@ -2,15 +2,12 @@
 
 A modern and responsive portfolio built with **Next.js**, designed to showcase my projects, technical skills, and journey as a software developer.
 
-This website reflects my focus on **clean UI, strong front-end foundations, and modern full-stack development practices**.
+![Hugo Lomba Portfolio](./public/images/portfolio-preview.png)
 
 ## Live Preview
 
-Add your deployed URL here:
-
-```text
 https://www.hugolomba.com
-```
+
 
 ## About the Project
 
@@ -31,7 +28,6 @@ The mobile experience was carefully designed with a modern card-based layout and
 - **TypeScript**
 - **Tailwind CSS**
 - **Framer Motion / Motion**
-- **Vercel**
 
 ## Features
 
@@ -43,15 +39,6 @@ The mobile experience was carefully designed with a modern card-based layout and
 - social and contact links
 - modern UI components
 
-## Project Structure
-
-```bash
-app/
-components/
-public/
-  images/
-  cv/
-```
 
 ## Running Locally
 
